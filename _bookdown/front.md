@@ -8,7 +8,7 @@ After you install _Sapien_ via [Composer](https://getcomposer.org) ...
 composer require sapien/sapien ^1.0
 ```
 
-... you can get started [here](/1.x/request/overview.html).
+... you can get started [here](/1.x/).
 
 The Github repository is at [sapienphp/sapien](https://github.com/sapienphp/sapien).
 
