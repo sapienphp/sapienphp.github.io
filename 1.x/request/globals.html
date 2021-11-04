@@ -171,6 +171,12 @@
                                 <li>
                 <a href="#1-1-2" title="Globals">Globals</a>
             </li>
+                                <li>
+                <a href="#1-1-2-1" title="JSON&#x20;Decoding">JSON Decoding</a>
+            </li>
+                                <li>
+                <a href="#1-1-2-2" title="Custom&#x20;Values">Custom Values</a>
+            </li>
             </ul>
 </nav>
         </div>
@@ -186,7 +192,8 @@ superglobals:</p>
 <p><code>array $files</code>: A copy of <code>$_FILES</code>.</p>
 </li>
 <li>
-<p><code>array $input</code>: A copy of <code>$_POST</code>.</p>
+<p><code>array $input</code>: A copy of <code>$_POST</code>, <em>or</em> a <code>json_decode()</code>d array from the
+content body (see below).</p>
 </li>
 <li>
 <p><code>array $query</code>: A copy of <code>$_GET</code>.</p>
@@ -199,6 +206,14 @@ superglobals:</p>
 <pre><code class="language-php">// get the `?q=` value, defaulting to an empty string
 $searchTerm = $request-&gt;query['q'] ?? '';
 </code></pre>
+<h2 id="1-1-2-1">1.1.2.1. JSON Decoding</h2>
+<p>The <code>$_POST</code> superglobal is populated only when PHP can decode the content
+body as <code>application/x-www-form-urlencoded</code>. However, it is often the case
+that content bodies are JSON encoded instead.</p>
+<p>Thus, as a convenience, if the <em>Request</em> <code>content-type</code> is <code>application/json</code>,
+then <code>$request-&gt;input</code> will be an array computed by applying <code>json_decode()</code> to
+the content body.</p>
+<h2 id="1-1-2-2">1.1.2.2. Custom Values</h2>
 <p>You can provide alternative or custom values via the <code>$globals</code> constructor
 parameter:</p>
 <pre><code class="language-php">$request = new Request(
