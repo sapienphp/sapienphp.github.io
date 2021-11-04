@@ -1,0 +1,36 @@
+<h1><em>Request</em></h1>
+<p>The Sapien <em>Request</em> is a value object representing the PHP request received by
+the server. Use a <em>Request</em> instead of the various PHP superglobals.</p>
+<h2>Instantiation</h2>
+<p>Instantiation of <em>Request</em> is straightforward:</p>
+<pre><code class="language-php">use Sapien\Request;
+
+$request = new Request();
+</code></pre>
+<p>The <em>Request</em> provides public readonly properties related to these areas:</p>
+<ul>
+<li>
+<a href="./globals.html">globals</a>
+</li>
+<li>
+<a href="./uploads.html">file uploads</a>
+</li>
+<li>
+<a href="./method.html">request method</a>
+</li>
+<li>
+<a href="./url.html">request url</a>
+</li>
+<li>
+<a href="./headers.html">headers</a>
+<ul>
+<li>
+<a href="./accept.html">accept headers</a>
+</li>
+<li>[forwarded and x-forwareded headers(./forward.md)</li>
+</ul>
+</li>
+<li>
+<a href="./content">content</a>
+</li>
+</ul>

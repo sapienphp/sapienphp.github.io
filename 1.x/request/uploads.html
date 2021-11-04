@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<meta name="HandheldFriendly" content="True"/>
+<title>Uploads</title>
+    
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/flatly/bootstrap.min.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" href="https://tobiju.github.io/share/prismjs/prism-prism.css" />
+<link rel="stylesheet" href="https://tobiju.github.io/share/prismjs/prism-linenumbers.css" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body data-spy="scroll" data-target="#sideNav" data-offset="50" class="bbt-theme-flatly">
+<div class="page-wrapper">
+    <header>
+    
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="box-header container">
+        <form class="form-search navbar-form navbar-right" role="search">
+            <div class="form-group">
+                <input type="text"
+                       placeholder="Search"
+                       class="js-search-input form-control"
+                       data-roothref="/">
+
+                <div class="js-search-results"></div>
+            </div>
+        </form>
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#js-navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+                            <a class="navbar-brand" href="/">
+                    <img alt="logo" src="/sapien.png" title="Home">
+                </a>
+                    </div>
+
+        <div class="collapse navbar-collapse" id="js-navbar-collapse">
+            
+    
+    <ul class="nav navbar-nav">
+                        <li>
+    <a href="/1.x/">1.x Docs</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/1.x/request/">Request</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/1.x/request/overview.html">Overview</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/request/globals.html">Globals</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/request/uploads.html">Uploads</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/request/method.html">Method</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/request/url.html">URL</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/request/headers.html">Headers</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/request/accept.html">Accept</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/request/forward.html">Forward</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/request/content.html">Content</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/request/extending.html">Extending the Request
+</a>
+
+    </li>
+            </ul>
+
+    </li>
+                        <li>
+    <a href="/1.x/response/">Response</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/1.x/response/overview.html">Overview</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/response/version.html">Protocol Version</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/response/code.html">Status Code</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/response/headers.html">Headers</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/response/cookies.html">Cookies</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/response/callbacks.html">Header Callbacks</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/response/content.html">Content</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/response/sending.html">Sending</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/response/special.html">Specialized Responses</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/response/extending.html">Extending the Response
+</a>
+
+    </li>
+            </ul>
+
+    </li>
+            </ul>
+
+    </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+</header>
+<div class="container">
+    <ol class="breadcrumb">
+                        <li><a href="/">Sapien</a></li>
+                                <li><a href="/1.x/">1.x Docs</a></li>
+                                <li><a href="/1.x/request/">Request</a></li>
+                                <li class="active">Uploads</li>
+            </ol>
+    <div class="row">
+
+                <div class="col-md-3">
+            <nav class="nav-left hidden-xs hidden-sm" id="sideNav">
+    <ul class="nav nav-stacked" data-spy="affix" data-offset-top="59" role="tablist">
+                                <li>
+                <a href="#1-1-3" title="Uploads">Uploads</a>
+            </li>
+                                <li>
+                <a href="#1-1-3-1" title="Motivation">Motivation</a>
+            </li>
+            </ul>
+</nav>
+        </div>
+                <div class="col-md-9">
+<div id="section-main"><h1 id="1-1-3">1.1.3. Uploads</h1>
+<p>The <em>Request</em> <code>$uploads</code> property is an array of <em>Sapien\Request\Upload</em> objects.</p>
+<p>Each <em>Upload</em> object is composed of these public readonly properties:</p>
+<ul>
+<li>
+<p><code>?string $name</code>: The original name of the file on the client machine.</p>
+</li>
+<li>
+<p><code>?string $fullPath</code>: The original path of the file on the client machine.</p>
+</li>
+<li>
+<p><code>?string $type</code>: The mime type of the file, if the client provided this
+information.</p>
+</li>
+<li>
+<p><code>?int $size</code>: The size, in bytes, of the uploaded file.</p>
+</li>
+<li>
+<p><code>?string $tmpName</code>: The temporary filename of the file in which the uploaded
+file was stored on the server.</p>
+</li>
+<li>
+<p><code>?int $error</code>: The <a href="https://www.php.net/manual/en/features.file-upload.errors.php">error code</a>
+associated with this file upload.</p>
+</li>
+</ul>
+<p>These values are derived from the <em>Request</em> <code>$files</code> array.</p>
+<p>In addition, each <em>Upload</em> object has this public method:</p>
+<ul>
+<li>
+<code>move(string $destination) : bool</code>: The equivalent of
+<a href="https://www.php.net/move_uploaded_file"><code>move_uploaded_file</code></a>.</li>
+</ul>
+<h2 id="1-1-3-1">1.1.3.1. Motivation</h2>
+<p>The <em>Request</em> <code>$files</code> property is an identical copy of <code>$_FILES</code>. Normally,
+<code>$_FILES</code> looks like this with multi-file uploads:</p>
+<pre><code class="language-php">// $_FILES ...
+[
+    'images' =&gt; [
+        'name' =&gt; [
+            0 =&gt; 'image1.png',
+            1 =&gt; 'image2.gif',
+            2 =&gt; 'image3.jpg',
+        ],
+        'full_path' =&gt; [
+            0 =&gt; 'image1.png',
+            1 =&gt; 'image2.gif',
+            2 =&gt; 'image3.jpg',
+        ],
+        'type' =&gt; [
+            0 =&gt; 'image/png',
+            1 =&gt; 'image/gif',
+            2 =&gt; 'image/jpeg',
+        ],
+        'tmp_name' [
+            0 =&gt; '/tmp/path/phpABCDEF',
+            1 =&gt; '/tmp/path/phpGHIJKL',
+            2 =&gt; '/tmp/path/phpMNOPQR',
+        ],
+        'error' =&gt; [
+            0 =&gt; 0,
+            1 =&gt; 0,
+            2 =&gt; 0,
+        ],
+        'size' =&gt;[
+            0 =&gt; 123456,
+            1 =&gt; 234567,
+            2 =&gt; 345678,
+        ],
+    ],
+];
+</code></pre>
+<p>However, that structure is surprising when we are used to working with <code>$_POST</code>.</p>
+<p>Therefore, the <em>Request</em> <code>$uploads</code> property restructures the data in
+<code>$_FILES</code> to look like <code>$_POST</code> does ...</p>
+<pre><code class="language-php">// $request-&gt;uploads in transition ...
+[
+    'images' =&gt; [
+        0 =&gt; [
+            'name' =&gt; 'image1.png',
+            'full_path' =&gt; 'image1.png',
+            'type' =&gt; 'image/png',
+            'tmp_name' =&gt; '/tmp/path/phpABCDEF',
+            'error' =&gt; 0,
+            'size' =&gt; 123456,
+        ],
+        1 =&gt; [
+            'name' =&gt; 'image2.gif',
+            'full_path' =&gt; 'image2.gif',
+            'type' =&gt; 'image/gif',
+            'tmp_name' =&gt; '/tmp/path/phpGHIJKL',
+            'error' =&gt; 0,
+            'size' =&gt; 234567,
+        ],
+        2 =&gt; [
+            'name' =&gt; 'image3.jpg',
+            'full_path' =&gt; 'image3.jpg',
+            'type' =&gt; 'image/jpeg',
+            'tmp_name' =&gt; '/tmp/path/phpMNOPQR',
+            'error' =&gt; 0,
+            'size' =&gt; 345678,
+        ],
+    ],
+];
+</code></pre>
+<p>... and then replaces each array-based descriptor with an <em>Upload</em> instance.</p>
+</div>        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="links">
+        <div class="container">
+            <div class="row">
+                <div class="prev col-xs-6">
+                                            <a href="/1.x/request/globals.html">Previous</a>                                    </div>
+                <div class="next col-xs-6">
+                                            <a href="/1.x/request/method.html">Next</a>                                    </div>
+            </div>
+        </div>
+    </div>
+    <div id="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Powered by <a href="https://github.com/tobiju/bookdown-bootswatch-templates" title="Visit project to generate your own docs">Bookdown Bootswatch Templates</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+<script src="//code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/0.6.0/lunr.min.js"></script>
+<script src="//bartaz.github.io/sandbox.js/jquery.highlight.js"></script>
+<script src="//tobiju.github.io/share/prismjs/main.js"></script>
+<script src="//tobiju.github.io/share/prismjs/prism.js"></script>
+<script type="text/javascript">
+
+    function Search() {
+        this.store = {};
+        this.index = lunr(function () {
+            this.ref('id');
+            this.field('title', {boost: 10});
+            this.field('content');
+        });
+        this.searchResults = $('.js-search-results').addClass('list-search-results');
+    }
+
+    Search.prototype = {
+        constructor: Search,
+        init: function () {
+            this.createIndex();
+            this.bindEvents();
+        },
+        createIndex: function () {
+            var $this = this,
+                indexFilePath = $('.js-search-input').data('roothref') + 'index.json';
+
+            $.getJSON(indexFilePath, function (data) {
+                $.each(data, function (key, item) {
+                    $this.index.add({
+                        id: item.id,
+                        title: item.title,
+                        content: item.content
+                    });
+
+                    $this.store[item.id] = {
+                        href: item.id,
+                        title: item.title,
+                        content: item.content
+                    }
+                });
+            });
+        },
+        bindEvents: function () {
+            var $this = this;
+
+            $('html')
+                .on('click', function (event) {
+                    $this.close($(this), event);
+                });
+
+            $('.js-search-input, .js-search-results')
+                .on('click', function (event) {
+                    $this.click($(this), event);
+                });
+
+            $('.js-search-input')
+                .on('focus', function (event) {
+                    $this.focus($(this), event);
+                })
+                .on('keyup', function (event) {
+                    $this.search($(this), event)
+                })
+                .on('keydown', function (event) {
+                    if ($('.js-search-results ul').is(':visible')){
+                        $this.navigation($(this), event)
+                    }
+                })
+        },
+        click: function (element, event) {
+            event.stopPropagation();
+        },
+        focus: function (element, event) {
+            this.searchInputWidth = element.css('width');
+            element.animate({
+                'width': 600
+            }, 500);
+            $('#js-navbar-collapse > ul').fadeOut();
+        },
+        close: function (element, event) {
+            var $this = this;
+
+            $('.js-search-results').hide();
+            $('.js-search-input').animate({
+                'width': $this.searchInputWidth
+            }, 500);
+            $('#js-navbar-collapse > ul').fadeIn();
+        },
+        search: function (element, event) {
+            var $this = this;
+
+            if (event.keyCode == 13 || event.keyCode == 38 || event.keyCode == 40) {
+                return;
+            }
+
+            var query = element.val(),
+                results = $this.index.search(query);
+
+            if (!results.length) {
+                $this.searchResults.empty();
+                return;
+            }
+
+            var resultsList = results.reduce(function (ul, result) {
+                var item = $this.store[result.ref];
+                var title = $('<b>').text(item.title);
+
+                var cropText = $this.cropText(item.content, query);
+                if (cropText.length === 0) {
+                    cropText = $('<p>').html(item.content.substring(0, 120) + "...");
+                }
+                var content = content = $('<p>').html(cropText);
+
+                var div = $('<div>')
+                    .append(title)
+                    .append(content);
+                var a = $('<a>').attr('href', item.href)
+                    .append(div);
+                var li = $('<li>')
+                    .append(a);
+                ul.append(li);
+
+                return ul;
+            }, $('<ul>'));
+
+            this.searchResults.html(resultsList);
+
+            $('.js-search-results').show();
+            $(".js-search-results li:first-child").addClass('selected');
+        },
+        cropText: function (content, query) {
+            var cropedText = '',
+                re = new RegExp("\\s?(.{0,30})?" + query + ".*?\\b(.{0,30}.)?\\s?", "gi");
+
+            $.each(content.match(re), function (key, value) {
+                cropedText += '...' + value + '...';
+            });
+
+            return cropedText;
+        },
+        navigation: function (element, event) {
+            var selected = null,
+                listSelector = ".js-search-results ul",
+                listItemSelector = listSelector + " li",
+                selectedListItemSelector = listItemSelector + ".selected",
+                selectedListItemSelectorAnchor = listItemSelector + ".selected a";
+
+            // enter
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                this.close();
+                window.location.replace($(selectedListItemSelectorAnchor).attr('href'));
+            }
+
+            // up
+            if (event.keyCode == 38) {
+                selected = $(selectedListItemSelector);
+                $(listItemSelector).removeClass("selected");
+
+                if (selected.prev().length == 0) {
+                    selected.siblings().last().addClass("selected");
+                } else {
+                    selected.prev().addClass("selected");
+                }
+
+                selected = $(selectedListItemSelector);
+                this.scrollListUp(selected);
+            }
+
+            // down
+            if (event.keyCode == 40) {
+                selected = $(selectedListItemSelector);
+                $(listItemSelector).removeClass("selected");
+
+                if (selected.next().length == 0) {
+                    selected.siblings().first().addClass("selected");
+                } else {
+                    selected.next().addClass("selected");
+                }
+
+                selected = $(selectedListItemSelector);
+                this.scrollListDown(selected);
+            }
+        },
+        scrollListDown: function (element) {
+            var ul = element.parent(),
+                ulHeight = ul.height(),
+                ulBottomPosition = ulHeight + ul.scrollTop(),
+                liBottomPosition = element.position().top + element.height();
+
+            if (liBottomPosition > ulBottomPosition) {
+                ul.scrollTop(liBottomPosition - ulHeight);
+            }
+
+            if (element.is(':first-child')) {
+                ul.scrollTop(0);
+            }
+        },
+        scrollListUp: function (element) {
+            var ul = element.parent(),
+                ulTopPosition = ul.scrollTop(),
+                liTopPosition = element.position().top;
+
+            if (liTopPosition < ulTopPosition) {
+                ul.scrollTop(element.position().top);
+            }
+
+            if (element.is(':last-child')) {
+                ul.scrollTop(element.position().top - element.height());
+            }
+        }
+    };
+
+    $(function () {
+        var search = new Search();
+        search.init();
+    });
+</script>
+</body>
+</html>
