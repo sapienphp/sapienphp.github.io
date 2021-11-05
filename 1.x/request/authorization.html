@@ -202,10 +202,9 @@ different implementations. The implementation is based on the scheme indicated
 by the <em>Request</em> <code>$headers['authorization']</code> scheme.</p>
 <blockquote>
 <p><strong>Warning:</strong></p>
-<p>The <em>Authorization\Scheme</em> objects <strong>do not</strong> indicate a user has been
-authenticated or authorized. They only carry the structured header values
-provided by the client. Use them to perform your own authentication and
-authorization logic.</p>
+<p>The <em>Scheme</em> objects <strong>do not</strong> indicate a user has been authenticated or
+authorized. They only carry the untrusted user inputs provided by the client.
+Use them to perform your own authentication and authorization logic.</p>
 </blockquote>
 <h2 id="1-1-8-1">1.1.8.1. Basic</h2>
 <p>The <em>Basic</em> scheme presents these readonly properties computed from
@@ -230,7 +229,7 @@ the <em>Request</em> <code>$headers['authorization']</code> credentials:</p>
 <li>
 <code>?string $cnonce</code>: The client nonce.</li>
 <li>
-<code>?string $nc</code>: The nonce count.</li>
+<code>?int $nc</code>: The nonce count.</li>
 <li>
 <code>?string $nonce</code>: The server nonce.</li>
 <li>
@@ -244,7 +243,7 @@ the <em>Request</em> <code>$headers['authorization']</code> credentials:</p>
 <li>
 <code>?string $uri</code>: The effective request URI.</li>
 <li>
-<code>?string $userhash</code>: Whether or not the username has been hashed.</li>
+<code>?bool $userhash</code>: Whether or not the username has been hashed.</li>
 <li>
 <code>?string $username</code>: The username in the realm.</li>
 </ul>
