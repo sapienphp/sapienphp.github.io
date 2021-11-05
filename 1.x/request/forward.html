@@ -189,7 +189,7 @@
 <p>The <em>Request</em> object has two readonly properties related to forwarding.</p>
 <h2 id="1-1-9-1">1.1.9.1. <code>$xForwarded</code>
 </h2>
-<p>The <code>$xForwarded</code> property is an instance of <em>Sapien\Request\XForwarded</em>.</p>
+<p>The <code>$xForwarded</code> property is an instance of <em>Sapien\Request\Header\XForwarded</em>.</p>
 <p>The <em>XForwarded</em> object has these readonly properties:</p>
 <ul>
 <li>
@@ -211,7 +211,7 @@ comma-separated values.</p>
 </ul>
 <h2 id="1-1-9-2">1.1.9.2. <code>$forwarded</code>
 </h2>
-<p>The <code>$forwarded</code> property is a readonly array of <em>Sapien\Request\Forwarded</em>
+<p>The <code>$forwarded</code> property is a readonly array of <em>Sapien\Request\Header\Forwarded</em>
 objects.</p>
 <p>Each <em>Forwarded</em> object has the following readonly properties computed from the
 <code>$headers['forwarded']</code> element:</p>

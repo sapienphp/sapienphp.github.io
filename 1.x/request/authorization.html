@@ -196,7 +196,7 @@
                 <div class="col-md-9">
 <div id="section-main"><h1 id="1-1-8">1.1.8. Authorization</h1>
 <p>The <em>Request</em> <code>$authorization</code> property is
-a <em>Sapien\Request\Authorization\Scheme</em> object.</p>
+a <em>Sapien\Request\Header\Authorization\Scheme</em> object.</p>
 <p>The <em>Scheme</em> class itself is a marker, and may be one of several
 different implementations. The implementation is based on the scheme indicated
 by the <em>Request</em> <code>$headers['authorization']</code> scheme.</p>
@@ -235,7 +235,7 @@ the <em>Request</em> <code>$headers['authorization']</code> credentials:</p>
 <li>
 <code>?string $opaque</code>: The server opaque string.</li>
 <li>
-<code>?string $qop</code>: The quality of protected.</li>
+<code>?string $qop</code>: The quality of protection.</li>
 <li>
 <code>?string $realm</code>: The authentication realm.</li>
 <li>
