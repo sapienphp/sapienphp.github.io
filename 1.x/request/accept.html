@@ -181,26 +181,26 @@
                 <div class="col-md-9">
 <div id="section-main"><h1 id="1-1-7">1.1.7. Accept</h1>
 <p>The <em>Request</em> <code>$accept</code> property is a <em>Sapien\Request\Header\Accept</em> object.</p>
-<p>The <em>Accept</em> object has these readonly array properties:</p>
+<p>The <em>Accept</em> object has these readonly <em>ValueCollection</em> properties:</p>
 <ul>
 <li>
-<p><code>array $types</code>: An array of <em>Accept\Type</em> objects computed from
+<p><code>TypeCollection $types</code>: A collection of <em>Accept\Type</em> objects computed from
 <code>$header['accept']</code>.</p>
 </li>
 <li>
-<p><code>array $charsets</code>: An array of <em>Accept\Charset</em> objects computed from
+<p><code>CharsetCollection $charsets</code>: A collection of <em>Accept\Charset</em> objects computed from
 <code>$header['accept-charset']</code>.</p>
 </li>
 <li>
-<p><code>array $encodings</code>: An array of <em>Accept\Encoding</em> objects computed from
+<p><code>EncodingCollection $encodings</code>: A collection of <em>Accept\Encoding</em> objects computed from
 <code>$header['accept-encoding']</code>.</p>
 </li>
 <li>
-<p><code>array $languages</code>: An array of <em>Accept\Language</em> objects computed from
+<p><code>LanguageCollection $languages</code>: A collection of <em>Accept\Language</em> objects computed from
 <code>$header['accept-language']</code>.</p>
 </li>
 </ul>
-<p>Each array is sorted from highest <code>q</code> parameter value to lowest.</p>
+<p>Each collection is sorted from highest <code>q</code> parameter value to lowest.</p>
 <p>Each <em>Accept\*</em> object has these readonly properties:</p>
 <ul>
 <li>
