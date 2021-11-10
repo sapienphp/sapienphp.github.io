@@ -211,9 +211,9 @@ content body (see below).</p>
 $searchTerm = $request-&gt;query['q'] ?? '';
 </code></pre>
 <h2 id="1-1-2-1">1.1.2.1. JSON Decoding</h2>
-<p>The <code>$_POST</code> superglobal is populated only when PHP can decode the content
-body as <code>application/x-www-form-urlencoded</code>. However, it is often the case
-that content bodies are JSON encoded instead.</p>
+<p>The <code>$_POST</code> superglobal is populated by PHP when it can decode the content
+body as <code>application/x-www-form-urlencoded</code> or <code>multipart/form-data</code>.
+However, it is often the case that content bodies are JSON encoded instead.</p>
 <p>Thus, as a convenience, if the <em>Request</em> <code>content-type</code> is <code>application/json</code>,
 then <code>$request-&gt;input</code> will be an array computed by applying <code>json_decode()</code> to
 the content body.</p>
