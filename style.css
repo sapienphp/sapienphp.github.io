@@ -359,3 +359,10 @@ footer #copyright span a {
         top: 0;
     }
 }
+
+.heading-permalink {
+    font-size: .8em;
+    vertical-align: super;
+    text-decoration: none;
+    color: transparent;
+}

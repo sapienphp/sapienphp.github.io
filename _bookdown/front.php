@@ -1,10 +1,9 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
-use League\CommonMark\Converter;
-use League\CommonMark\DocParser;
-use League\CommonMark\Environment;
-use League\CommonMark\HtmlRenderer;
+use League\CommonMark\MarkdownConverter;
+use League\CommonMark\Environment\Environment;
+use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 
 $file = dirname(__DIR__) . '/index.html';
 $html = file_get_contents($file);
@@ -13,13 +12,11 @@ $tail = substr($html, strpos($html, '</footer>') + 9);
 $html = $lead . file_get_contents(__DIR__ . '/front.html') . $tail;
 
 
-$environment = Environment::createCommonMarkEnvironment();
-$converter = new Converter(
-    new DocParser($environment),
-    new HtmlRenderer($environment)
-);
+$environment = new Environment();
+$environment->addExtension(new CommonMarkCoreExtension());
+$converter = new MarkdownConverter($environment);
 
-$examples = $converter->convertToHtml(
+$examples = $converter->convert(
 	file_get_contents(__DIR__ . '/front.md'),
 );
 
